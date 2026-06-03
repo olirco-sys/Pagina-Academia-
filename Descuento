@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academia Artes y Oficios | Descuento y Cursos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-oscuro:#08295c;
+      --azul-medio:#0077a8;
+      --azul-claro:#bfeefa;
+      --verde:#7bb342;
+      --amarillo:#ffd166;
+      --rojo:#ef233c;
+    }
+
+    body{
+      font-family:'Segoe UI', Arial, sans-serif;
+      color:#17324a;
+      background:#fff;
+      padding-bottom:90px;
+    }
+
+    .navbar{
+      background:linear-gradient(90deg,var(--azul-oscuro),var(--azul-medio));
+    }
+
+    .urgency-strip{
+      background:#ef233c;
+      color:white;
+      font-weight:900;
+      padding:.75rem;
+      text-align:center;
+      margin-top:56px;
+    }
+
+    .discount-hero{
+      min-height:100vh;
+      padding-top:70px;
+      color:white;
+      background:
+        radial-gradient(circle at top left,rgba(255,209,102,.45),transparent 28%),
+        radial-gradient(circle at bottom right,rgba(191,238,250,.55),transparent 30%),
+        linear-gradient(135deg,#061d41,#08295c,#0077a8);
+    }
+
+    .big-banner{
+      background:linear-gradient(90deg,var(--rojo),#ff7b00,var(--amarillo));
+      color:#111;
+      border-radius:26px;
+      padding:1.3rem;
+      font-weight:1000;
+      text-align:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.28);
+      font-size:1.35rem;
+    }
+
+    .discount-box{
+      background:white;
+      color:var(--azul-oscuro);
+      border-radius:36px;
+      padding:2rem;
+      box-shadow:0 30px 70px rgba(0,0,0,.35);
+      border:5px solid rgba(255,209,102,.9);
+    }
+
+    .discount-number{
+      font-size:6rem;
+      line-height:.9;
+      font-weight:1000;
+      background:linear-gradient(135deg,#08295c,#0077a8,#22a447);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .timer-panel{
+      background:#061d41;
+      color:white;
+      border-radius:26px;
+      padding:1.4rem;
+      border:3px solid var(--amarillo);
+      box-shadow:0 18px 45px rgba(0,0,0,.25);
+    }
+
+    .timer-number{
+      font-size:4.2rem;
+      font-weight:1000;
+      letter-spacing:2px;
+      color:#ffd166;
+    }
+
+    .btn-whatsapp{
+      background:linear-gradient(90deg,#7bb342,#9bd45c);
+      color:white!important;
+      font-weight:800;
+      border:none;
+      border-radius:50px;
+      padding:.9rem 1.5rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .btn-whatsapp:hover{
+      transform:translateY(-2px);
+    }
+
+    .pulse{
+      animation:pulse 1.4s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.035)}
+      100%{transform:scale(1)}
+    }
+
+    .section-title{
+      color:var(--azul-oscuro);
+      font-weight:900;
+    }
+
+    .course-card{
+      border:0;
+      border-radius:24px;
+      padding:1.5rem;
+      height:100%;
+      background:white;
+      box-shadow:0 12px 28px rgba(8,41,92,.12);
+      transition:.3s;
+    }
+
+    .course-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .badge-area{
+      background:rgba(0,119,168,.1);
+      color:var(--azul-oscuro);
+      border:1px solid rgba(0,119,168,.25);
+    }
+
+    .price{
+      color:var(--azul-oscuro);
+      font-weight:900;
+      font-size:1.1rem;
+    }
+
+    .gradient-section{
+      background:linear-gradient(135deg,#f7fbff,#eaf8fc);
+    }
+
+    .sticky-cta{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:998;
+      background:linear-gradient(90deg,#061d41,#0077a8);
+      color:white;
+      padding:.75rem 1rem;
+      box-shadow:0 -10px 25px rgba(0,0,0,.25);
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:22px;
+      bottom:95px;
+      background:#25d366;
+      color:white!important;
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+      z-index:999;
+      text-decoration:none;
+    }
+
+    .footer{
+      background:#061d41;
+      color:white;
+    }
+
+    @media(max-width:768px){
+      .discount-number{
+        font-size:4.4rem;
+      }
+
+      .timer-number{
+        font-size:3rem;
+      }
+
+      .big-banner{
+        font-size:1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        Academia Artes y Oficios
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active fw-bold text-warning" href="descuento.html">
+              Cursos + 15% descuento
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="urgency-strip">
+    CUPOS LIMITADOS: primeras 10 personas con 15% de descuento · El contador ya inició
+  </div>
+
+  <section class="discount-hero">
+    <div class="container">
+
+      <div class="big-banner mb-4 pulse">
+        ÚLTIMA OPORTUNIDAD: 15% DE DESCUENTO EN EL CURSO QUE MATRICULES
+      </div>
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+          <h1 class="display-3 fw-bold mb-3">
+            Elige tu curso y reclama el descuento antes de que termine el tiempo
+          </h1>
+
+          <p class="lead mb-4">
+            Esta promoción es exclusiva para las primeras 10 personas que escriban por WhatsApp.
+            Selecciona tu curso, presiona el botón de matrícula y solicita tu 15% de descuento.
+          </p>
+
+          <div class="timer-panel mb-4 text-center">
+            <p class="mb-1 fw-bold text-warning">
+              Tu tiempo para reclamar la promoción:
+            </p>
+
+            <div class="timer-number countdown">
+              05:00
+            </div>
+
+            <p class="mb-0">
+              Cuando el contador llegue a cero, la promoción dejará de estar disponible en esta página.
+            </p>
+          </div>
+
+          <a class="btn btn-warning btn-lg rounded-pill fw-bold px-5 pulse promo-action"
+             href="https://wa.me/50688342439?text=Hola%2C%20quiero%20reclamar%20mi%2015%25%20de%20descuento%20y%20matricular%20un%20curso.">
+            Reclamar mi 15% ahora
+          </a>
+
+          <p class="expired-message d-none mt-3 text-warning fw-bold">
+            La promoción aparece como finalizada. Puedes escribirnos para consultar nuevas oportunidades.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="discount-box text-center">
+            <p class="fw-bold text-uppercase">
+              Oferta de matrícula
+            </p>
+
+            <div class="discount-number">
+              15%
+            </div>
+
+            <h2 class="fw-bold mb-3">
+              menos en tu curso
+            </h2>
+
+            <p class="fs-5">
+              Para las primeras <strong>10 personas</strong> que envíen mensaje al
+              <strong>8834-2439</strong>.
+            </p>
+
+            <hr>
+
+            <h5 class="fw-bold">
+              Pasos para aplicar
+            </h5>
+
+            <ol class="text-start">
+              <li>Elige el curso de tu interés.</li>
+              <li>Presiona “Matricular con descuento”.</li>
+              <li>Envía el mensaje por WhatsApp.</li>
+              <li>Confirma tu matrícula.</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 gradient-section" id="cursos">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">
+          Cursos disponibles con promoción
+        </h2>
+
+        <p class="text-muted fs-5">
+          Haz clic en el curso que deseas matricular y solicita el 15% de descuento antes de que finalice el contador.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <span class="badge badge-area rounded-pill mb-2">Informática</span>
+            <h4>Power BI AI</h4>
+            <p>Reportes visuales, análisis de datos e inteligencia artificial aplicada.</p>
+            <p class="price">₡70 000</p>
+            <a class="btn btn-whatsapp btn-sm promo-action"
+               href="https://wa.me/50688342439?text=Hola%2C%20quiero%20matricular%20Power%20BI%20AI%20y%20reclamar%20el%2015%25%20de%20descuento.">
+              Matricular con descuento
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <span class="badge badge-area rounded-pill mb-2">Informática</span>
+            <h4>Excel intermedio-avanzado</h4>
+            <p>Funciones, tablas, filtros y herramientas para productividad.</p>
+            <p class="price">₡70 000</p>
+            <a class="btn btn-whatsapp btn-sm promo-action"
+               href="https://wa.me/50688342439?text=Hola%2C%20quiero%20matricular%20Excel%20intermedio-avanzado%20y%20reclamar%20el%2015%25%20de%20descuento.">
+              Matricular con descuento
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="course-card">
+            <span class="badge badge-area rounded-pill mb-2">Informática</span>
+            <h4>Ofimática introductoria</h4>
+            <p>Introducción a Word, Excel, PowerPoint y documentos básicos.</p>
+            <p class="price">₡43 000</p>
+            <a class="btn btn-whatsapp btn-sm promo-action"
+               href="https://wa.me/50688342439?text=Hola%2C%20quiero%20matricular%20Ofim%C3%A1tica%20introductoria%20y%20reclamar%20el%2015%25%20de%20descuento.">
+              Matricular con descuento
+            </a>
+          </div>
+        </div>
